@@ -6,22 +6,32 @@ HTML header:    <script type="text/javascript"
                 src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
                 </script>
 
+##Gradient descent
 
+To minimize J(ϴ):
+\\[
 
-Mean normalization<br>
+\text{Repeat until convergence} \: \{  \\
+ϴ_{j} := ϴ_{j}\:-\: \alpha\frac{\partial}{\partial\: ϴ_{j}} J(\:ϴ\:) = ϴ_{j}\:-\: \alpha \frac{1}{m} \sum\limits_{i=1}^m (\:h_{0}(x^{(i)}) - y^{(i)}\:)\: x_{j}
+\\
+\text{simultaneously update all}\:ϴ_{j}
+   \\ \}
+\\]
+
+## Mean normalization<br>
 \\[ {x}_{i}=\frac{{x}_{i} - µ}{max - min} \\]
 Where µ is a mean of an array (mean(X) in Matlab)<br>
 and range is (max - min) (std(X) in Matlab)
 
 Normal equations
 
-ϴ = (X^T X)​^-1^ X^T^ y
+ϴ = (X^T X)​^-1^ X^T^ Y
 
 Matlab:<br>
 A = (X' * X);<br>
-theta = inv(A) * X' * y;
+ϴ = inv(A) * X' * y;
 
-<center>Comparison of Gradient descent and Normal equation</center>
+##Comparison of Gradient descent and Normal equation
 
 | Gradient descent| Normal equation|<br>  
 |  ------	| ------	| ------	|  
