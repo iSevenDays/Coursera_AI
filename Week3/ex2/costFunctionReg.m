@@ -18,10 +18,13 @@ grad = zeros(size(theta));
 %               derivatives of the cost w.r.t. each parameter in theta
 
 
+[J, grad] = costFunction(theta, X, y);
 
+J = J + (lambda / (2 * m)) * sum(theta(2:end) .^ 2);
 
-
-
+% you should not be regularizing the theta(1)
+% parameter (which corresponds to theta0 in code)
+grad(2:end) = grad(2:end) + (lambda / m) * theta(2:end)';
 % =============================================================
 
 end
